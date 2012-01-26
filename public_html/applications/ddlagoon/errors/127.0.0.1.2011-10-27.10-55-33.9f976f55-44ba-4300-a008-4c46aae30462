@@ -1,0 +1,20 @@
+(dp1
+S'output'
+p2
+S''
+sS'layer'
+p3
+S'/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/applications/ddlagoon/controllers/ddl.py'
+p4
+sS'code'
+p5
+S'import tempfile\n\nif False:\n    from applications.ddlagoon.models.db import service, db\n\nfrom gluon.contrib import simplejson as json\n\n__author__ = \'thomas\'\n\ndef get():\n    return service()\n\n@service.xml\ndef ddl(id="", filename=""):\n    # find the record\n    ddl= db((db.ddl.filename==filename) & (db.ddl.id==id)).select().first()\n    if not ddl:\n        return "404 - File not found."\n    else:\n        # prepare the file\n        ddl = {\n            \'author\':ddl.author,\n            \'filename\':ddl.filename,\n            \'description\':ddl.description,\n            \'size\':ddl.size,\n            \'hash\':ddl.hash,\n            \'parts\':ddl.parts,\n            \'service\':ddl.service,\n            \'links\':ddl.links,\n            \'version\':ddl.version,\n            \'time\':ddl.time\n        }\n        ddlJson = json.dumps(ddl, sort_keys=True, indent=4)\n        # temp file\n        ddlFile = tempfile.Tempfile()\n        with open(ddlFile, "rb") as myFile:\n            myFile.write(ddlJson)\n        return response.download(ddlFile)\nresponse._vars=response._caller(get)\n'
+p6
+sS'snapshot'
+p7
+(dp8
+sS'traceback'
+p9
+S'Traceback (most recent call last):\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/restricted.py", line 194, in restricted\n    exec ccode in environment\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/applications/ddlagoon/controllers/ddl.py", line 39, in <module>\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/globals.py", line 149, in <lambda>\n    self._caller = lambda f: f()\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/applications/ddlagoon/controllers/ddl.py", line 11, in get\n    return service()\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/tools.py", line 3834, in __call__\n    return self.serve_run(request.args[1:])\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/tools.py", line 3585, in serve_run\n    *args[1:], **dict(request.vars)))\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/tools.py", line 3351, in universal_caller\n    return f(**arg_dict)\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/applications/ddlagoon/controllers/ddl.py", line 31, in ddl\n    \'time\':ddl.time\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/dal.py", line 3851, in __getattr__\n    return self[key]\n  File "/windows/Users/Thomas/Dropbox/appz/2011/GAE/ddl-lagoon/gluon/dal.py", line 3842, in __getitem__\n    return dict.__getitem__(self, key)\nKeyError: \'time\'\n'
+p10
+s.

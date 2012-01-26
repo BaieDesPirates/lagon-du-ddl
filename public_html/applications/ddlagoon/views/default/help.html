@@ -1,0 +1,45 @@
+{{left_sidebar_enabled=False}}
+{{right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<div id="statusbar"><!-- statusbar is menu zone -->
+   <!-- this is default statusbar -->
+
+  <ul class="sf-menu">
+      <li><a href="/welcome/default/index">Home</a></li>
+      <li class="web2py-menu-expand">
+          <a href="/ddlagoon/default/howto">Help</a>
+          <ul class="web2py-menu-vertical"><li><a href="/ddlagoon/default/howto">How to download?</a></li>
+              <li><a href="/ddlagoon/default/how_to_upload">How to upload?</a></li>
+              <li><a href="/ddlagoon/default/help">Issues / Bugs</a></li>
+          </ul>
+      </li>
+      {{if loggedIn:}}
+      <li><a href="/ddlagoon/default/user/profile">Profile</a></li>
+      {{else:}}
+      <li><a href="/ddlagoon/default/user/login">Login/Register</a></li>
+      {{pass}}
+  </ul>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+    jQuery('ul.sf-menu').superfish();});
+  </script>
+
+  <!-- AddToAny BEGIN -->
+  <div style="padding: 7px; float:right;" class="a2a_kit a2a_default_style"><a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a></div><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+  <!-- AddToAny END -->
+
+  <div style="clear: both;"></div><!-- Clear the divs -->
+
+</div><!-- statusbar -->
+<br />
+Report any issue (bugs, feature requests, enhancements) to the <a href="{{=issuesUrl}}" target="_blank">Issues Tracker</a>.
+<br /><br />
+To add an issue, use the "Create issue" button:<br />
+<a href="https://bitbucket.org/DDLagoon/ddlagoon/issues/new" target="_blank">
+    <img src="/ddlagoon/static/images/createIssue.png" />
+</a>
+
+
+
+

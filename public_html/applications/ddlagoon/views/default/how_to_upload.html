@@ -1,0 +1,91 @@
+{{left_sidebar_enabled=False}}
+{{right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<div id="statusbar"><!-- statusbar is menu zone -->
+   <!-- this is default statusbar -->
+
+  <ul class="sf-menu">
+      <li><a href="/welcome/default/index">Home</a></li>
+      <li class="web2py-menu-expand">
+          <a href="/ddlagoon/default/howto">Help</a>
+          <ul class="web2py-menu-vertical"><li><a href="/ddlagoon/default/howto">How to download?</a></li>
+              <li><a href="/ddlagoon/default/how_to_upload">How to upload?</a></li>
+              <li><a href="/ddlagoon/default/help">Issues / Bugs</a></li>
+          </ul>
+      </li>
+      {{if loggedIn:}}
+      <li><a href="/ddlagoon/default/user/profile">Profile</a></li>
+      {{else:}}
+      <li><a href="/ddlagoon/default/user/login">Login/Register</a></li>
+      {{pass}}
+  </ul>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+    jQuery('ul.sf-menu').superfish();});
+  </script>
+
+  <!-- AddToAny BEGIN -->
+  <div style="padding: 7px; float:right;" class="a2a_kit a2a_default_style"><a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a></div><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+  <!-- AddToAny END -->
+
+  <div style="clear: both;"></div><!-- Clear the divs -->
+
+</div><!-- statusbar -->
+
+<br /><br />
+{{if allowed:}}
+        Aller, on va apprendre à uploader ;)<br /><br />
+
+        <b><u>Table des matières</u><br />
+            <a href="#twitter">Twitter Account</a><br />
+        <a href="#param">Paramètres du programme</a><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#twitpic">Twitpic Account</a><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#pictures">Pictures Folder</a><br />
+        </b><br /><br />
+
+
+        <h1><a name="twitter"></a>Twitter Account</h1>
+        Tout d'abord, il nous faut un compte Twitter.<br />
+        Utilisez un <b>COMPTE TWITTER BIDON</b> que vous n'utilisez pas, que vous allez créer pour l'occasion, <u>et changer de temps en temps</u>.<br />
+        Allez sur <a href="http://www.twitter.com" target="_blank">Twitter.com</a> et créez un compte bidon, avec une adresse de type <b>un_mail_bidon@yopmail.com</b>.<br />
+        <u>Exemple:</u><br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/98ca5436-e535-481a-80f2-ee6d1a31fc65/2011-11-08_2213.png" /><br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/e8d1824e-323d-42a8-a4f9-f76dba200c0e/2011-11-08_2214.png" /><br /><br />
+        Allez sur http://<b>un_mail_bidon</b>.yopmail.com (en remplacant un_mail_bidon par votre email yopmail sans le "@yopmail.com") et confirmez votre e-mail addresse.<br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/80e86354-8ee4-428c-9c4a-9b594f2f2033/2011-11-08_2219.png" /><br /><br />
+        Votre compte Twitter est créé et le mail confirmé !<br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/e21c4f1c-fd1c-4627-845c-cc301de06bb2/2011-11-08_2221.png" /><br /><br />
+        Time to go sur <a href="http://www.twitpic.com">TwitPic</a> et de se connecter avec le compte Twitter fraîchement créé.<br />
+        <!-- copy and paste. Modify height and width if desired. --> <object id="scPlayer"  width="1215" height="845" type="application/x-shockwave-flash" data="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/6df58711-7d88-4d3e-978c-58596e7e35ff/jingswfplayer.swf" > <param name="movie" value="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/6df58711-7d88-4d3e-978c-58596e7e35ff/jingswfplayer.swf" /> <param name="quality" value="high" /> <param name="bgcolor" value="#FFFFFF" /> <param name="flashVars" value="thumb=http://content.screencast.com/users/Sp00ky31/folders/Jing/media/6df58711-7d88-4d3e-978c-58596e7e35ff/FirstFrame.jpg&containerwidth=1215&containerheight=845&content=http://content.screencast.com/users/Sp00ky31/folders/Jing/media/6df58711-7d88-4d3e-978c-58596e7e35ff/2011-11-08_2224.swf&blurover=false" /> <param name="allowFullScreen" value="true" /> <param name="scale" value="showall" /> <param name="allowScriptAccess" value="always" /> <param name="base" value="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/6df58711-7d88-4d3e-978c-58596e7e35ff/" /> Unable to display content. Adobe Flash is required.</object>
+        <br /><br />
+        Si tout a bien fonctionné, vous êtes connecté avec votre compte Twitter sous Twitpic, prêt à utiliser ce compte pour uploader !<br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/91cf414b-7557-403c-beaa-c21778aa2fb3/2011-11-08_2226.png" />
+<br /><br />
+        <h1><a name="param"></a>Paramètres du programme</h1>
+        <h2><a name="twitpic"></a>Twitpic Account</h2>
+        {{=tuto['start']}}<br />
+        <img src="/ddlagoon/static/images/tuto_upload/01.png" /><br /><br />
+        {{=tuto['go_to_profile_pre']}} <a href="/ddlagoon/default/user/profile" target="_blank">{{=tuto['profile']}}</a> {{=tuto['go_to_profile_suf']}}<br /><br />
+        {{=tuto['login']}}<br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/5ba743b3-efe8-4a04-a522-d7da8e6a74a2/2011-11-08_2132.png" /><br /><br />
+        {{=tuto['go_to_settings']}}<br />
+        <img src="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/1af6f8de-da2c-43fd-8aa3-bb0b6a6bce32/2011-11-08_2207.png" /><br /><br />
+        Et mettez à jour avec votre compte Twitter/Twitpic fraîchement créé !<br />
+        <u>Best practice:</u> Renouveller souvent son compte Twitter/Twitpic !
+        <h2><a name="pictures"></a>Pictures Folder</h2>
+        Eh oui, comme on utilise Twitpic, il nous faut <i>cacher</i> nos fichiers dans des images.<br />
+        Il vous faut donc spécifier un dossier <b>avec beaucoup d'images</b>, de préférence <b>entre 100 Kb et 2 Mb</b> (maximum: 4 Mb, formats reconnus : jpg gif png).<br />
+        Le programme reconnaîtra tout seul les sous-dossiers, vous pouvez donc juste indiquer la racine d'un dossier contenant des images.<br />
+        Ces images seront <b>PUBLIQUES</b>, (que tout le monde puisse les télécharger pour reconstituer les fichiers cachés dedans), ne mettez donc pas de photos personnelles dedans !!!<br />
+        Je vous ai uploadé un <a href="http://ddlagoon.fluxflex.com/ddlagoon/default/get/run/ddl/17/DDLagoon_Pictures.rar"><b>pack d'images</b></a> (175 Mb) que vous pouvez utiliser.
+        <u>Best practice:</u> Renouveller souvent les images de ce dossier.<br /><br />
+        Enfin il suffit de glisser/déposer les fichiers à uploader et cliquer sur START !<br />
+        <b><u>ATTENTION :</u> LES UPLOADS SONT PAR DEFAUT PUBLICS POUR L'INSTANT (et on ne peut pas <i>encore</i> changer ça (mais ça va venir).<br />>
+        N'uploadez pas de fichiers persos (encore) !</b>
+{{else:}}
+        You are not allowed to upload!<br />
+        <br />
+        Faites une demande pour devenir uploader par mail à <a href="mailto:ddlagoon@bigfoot.com">ddlagoon@bigfoot.com</a> (donnez-nous votre nickname qui apparait sur la <a href="/ddlagoon/default/user/profile">page de profil</a>, que vous pouvez d'ailleurs changer).<br />
+        E-mail <a href="mailto:ddlagoon@bigfoot.com">ddlagoon@bigfoot.com</a> to become an uploader (tell us your nickname from the <a href="/ddlagoon/default/user/profile">profile page</a>, which you can change btw).
+{{pass}}

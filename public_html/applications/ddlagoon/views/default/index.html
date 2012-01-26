@@ -1,0 +1,73 @@
+{{left_sidebar_enabled=False}}
+{{right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<div id="statusbar"><!-- statusbar is menu zone -->
+   <!-- this is default statusbar -->
+
+  <ul class="sf-menu">
+      <li><a href="/ddlagoon/default/index">Home</a></li>
+      <li class="web2py-menu-expand">
+          <a href="/ddlagoon/default/howto">Help</a>
+          <ul class="web2py-menu-vertical"><li><a href="/ddlagoon/default/howto">How to download?</a></li>
+              <li><a href="/ddlagoon/default/how_to_upload">How to upload?</a></li>
+              <li><a href="/ddlagoon/default/help">Issues / Bugs</a></li>
+          </ul>
+      </li>
+      {{if loggedIn:}}
+      <li><a href="/ddlagoon/default/user/profile">Profile</a></li>
+      {{else:}}
+      <li><a href="/ddlagoon/default/user/login">Login/Register</a></li>
+      {{pass}}
+  </ul>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+    jQuery('ul.sf-menu').superfish();});
+  </script>
+
+  <!-- AddToAny BEGIN -->
+  <div style="padding: 7px; float:right;" class="a2a_kit a2a_default_style"><a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a></div><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+  <!-- AddToAny END -->
+
+  <div style="clear: both;"></div><!-- Clear the divs -->
+
+</div><!-- statusbar -->
+<br />
+{{=form}}
+<br />
+{{if filesearch:}}
+        Results for: <b>{{=filesearch}}</b>
+        {{else:}}
+        20 last files uploaded:
+{{pass}}
+
+<br /><br />
+{{if 'ddlz' in globals():}}
+    <table width="100%">
+        <thead><tr><th>File</th><th>Size</th><th>Downloads</th><th>When</th><th>Uploader</th></tr></thead>
+        <tbody>
+    {{for ddl in ddlz:}}
+        <tr><td><a href="/ddlagoon/default/get/run/ddl/{{=ddl.id}}/{{=ddl.filename_url or 'error'}}">{{=ddl.filename or 'no filename'}}</a></td><td>{{=ddl.size_readable or 'no size'}}</td><td align="center">{{=ddl.times_downloaded or '0'}}</td><td>{{=ddl.timedelta or 'no date'}} ago</td><td>{{=ddl.nickname}}</td></tr>
+    {{pass}}
+    </tbody></table>
+{{else:}}
+    No DDL, snif!
+{{pass}}
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'ddlagoon'; // required: replace example with your forum shortname
+    var disqus_identifier = 'home';
+    var disqus_url = 'https://ddlagoon.fluxflex.com/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments.</a></noscript>
+
+

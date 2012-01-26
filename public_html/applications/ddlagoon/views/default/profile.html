@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+{{if is_uploader:}}
+    Congrats {{=nickname}}, you're an uploader.<br />
+    Your Uploader key is: {{=uploader_key}}
+{{ else: }}
+    Too bad, {{=nickname}}, you're not an uploader.<br />
+    Your Uploader key is: {{=uploader_key}}
+{{ pass }}

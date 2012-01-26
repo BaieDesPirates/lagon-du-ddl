@@ -1,0 +1,43 @@
+{{left_sidebar_enabled=False}}
+{{right_sidebar_enabled=False}}
+{{extend 'layout.html'}}
+
+<div id="statusbar"><!-- statusbar is menu zone -->
+   <!-- this is default statusbar -->
+
+  <ul class="sf-menu">
+      <li><a href="/welcome/default/index">Home</a></li>
+      <li class="web2py-menu-expand">
+          <a href="/ddlagoon/default/howto">Help</a>
+          <ul class="web2py-menu-vertical"><li><a href="/ddlagoon/default/howto">How to download?</a></li>
+              <li><a href="/ddlagoon/default/how_to_upload">How to upload?</a></li>
+              <li><a href="/ddlagoon/default/help">Issues / Bugs</a></li>
+          </ul>
+      </li>
+      {{if loggedIn:}}
+      <li><a href="/ddlagoon/default/user/profile">Profile</a></li>
+      {{else:}}
+      <li><a href="/ddlagoon/default/user/login">Login/Register</a></li>
+      {{pass}}
+  </ul>
+  <script type="text/javascript">
+    jQuery(document).ready(function(){
+    jQuery('ul.sf-menu').superfish();});
+  </script>
+
+  <!-- AddToAny BEGIN -->
+  <div style="padding: 7px; float:right;" class="a2a_kit a2a_default_style"><a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a></div><script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+  <!-- AddToAny END -->
+
+  <div style="clear: both;"></div><!-- Clear the divs -->
+
+</div><!-- statusbar -->
+<br />
+Use the DDLagoon Downloader:<br />
+<a href="{{=win32}}" target="_blank">DDLagoon-{{=version}}-win32.exe</a> (Windows 32 bits)<br />
+<a href="{{=win64}}" target="_blank">DDLagoon-{{=version}}-win64.exe</a> (Windows 64 bits)<br />
+<a href="{{=amd64}}" target="_blank">DDLagoon-{{=version}}-amd64.tar.gz</a> (Linux 64 bits)<br />
+<br />
+        Demo:<br />
+<!-- copy and paste. Modify height and width if desired. --> <object id="scPlayer"  width="1077" height="632" type="application/x-shockwave-flash" data="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/93dcb37c-c4e1-4c2a-b899-34dc5af01f84/jingswfplayer.swf" > <param name="movie" value="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/93dcb37c-c4e1-4c2a-b899-34dc5af01f84/jingswfplayer.swf" /> <param name="quality" value="high" /> <param name="bgcolor" value="#FFFFFF" /> <param name="flashVars" value="thumb=http://content.screencast.com/users/Sp00ky31/folders/Jing/media/93dcb37c-c4e1-4c2a-b899-34dc5af01f84/FirstFrame.jpg&containerwidth=1077&containerheight=632&content=http://content.screencast.com/users/Sp00ky31/folders/Jing/media/93dcb37c-c4e1-4c2a-b899-34dc5af01f84/2011-10-27_2234.swf&blurover=false" /> <param name="allowFullScreen" value="true" /> <param name="scale" value="showall" /> <param name="allowScriptAccess" value="always" /> <param name="base" value="http://content.screencast.com/users/Sp00ky31/folders/Jing/media/93dcb37c-c4e1-4c2a-b899-34dc5af01f84/" /> Unable to display content. Adobe Flash is required.</object>
+

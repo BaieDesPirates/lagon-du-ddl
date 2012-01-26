@@ -1,0 +1,131 @@
+timestamp: 2011-10-26T20:02:43.512450
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    nickname CHAR(128) UNIQUE,
+    allow_porn CHAR(1),
+    uploader_key CHAR(512),
+    is_uploader CHAR(1)
+);
+success!
+timestamp: 2011-10-26T20:02:43.541017
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-10-26T20:02:43.560424
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-10-26T20:02:43.576450
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2011-10-26T20:02:43.592373
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2011-10-26T20:02:43.609680
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    created_on TIMESTAMP,
+    url CHAR(512),
+    uuid CHAR(512)
+);
+success!
+timestamp: 2011-10-26T20:02:43.640085
+CREATE TABLE category(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    category_title CHAR(512) NOT NULL,
+    category_description TEXT,
+    category_parent INTEGER REFERENCES category(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2011-10-26T20:02:43.690808
+CREATE TABLE ddl(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    filename CHAR(512) NOT NULL,
+    author CHAR(512),
+    description CHAR(512),
+    web_description CHAR(512),
+    size INTEGER NOT NULL,
+    hash CHAR(512) NOT NULL,
+    parts INTEGER NOT NULL,
+    service CHAR(512) NOT NULL,
+    links CHAR(512) NOT NULL,
+    version DOUBLE NOT NULL,
+    date_created TIMESTAMP,
+    uploader INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    date_added TIMESTAMP,
+    category INTEGER REFERENCES category(id) ON DELETE CASCADE,
+    last_time_downloaded TIMESTAMP,
+    times_downloaded INTEGER,
+    karma_pos INTEGER,
+    karma_neg INTEGER,
+    reported INTEGER
+);
+success!
+timestamp: 2011-10-26T20:02:43.726714
+CREATE TABLE ddl_downloaded(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ddl INTEGER REFERENCES ddl(id) ON DELETE CASCADE,
+    downloader INTEGER REFERENCES auth_user(id) ON DELETE CASCADE,
+    download_time TIMESTAMP NOT NULL
+);
+success!
+timestamp: 2011-10-26T22:08:51.518372
+ALTER TABLE ddl ADD size_readable CHAR(512);
+timestamp: 2011-10-26T23:05:36.832884
+ALTER TABLE ddl ADD filename_url CHAR(512);
+timestamp: 2011-11-08T21:46:39.129000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    registration_key VARCHAR(255),
+    reset_password_key VARCHAR(255),
+    nickname VARCHAR(128) UNIQUE,
+    allow_porn CHAR(1),
+    uploader_key VARCHAR(255),
+    is_uploader CHAR(1),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
+timestamp: 2011-11-08T21:48:01.109000
+CREATE TABLE auth_user(
+    id INT AUTO_INCREMENT NOT NULL,
+    first_name VARCHAR(128),
+    last_name VARCHAR(128),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    registration_key VARCHAR(255),
+    reset_password_key VARCHAR(255),
+    nickname VARCHAR(128) UNIQUE,
+    allow_porn CHAR(1),
+    uploader_key VARCHAR(255),
+    is_uploader CHAR(1),
+    PRIMARY KEY(id)
+) ENGINE=InnoDB CHARACTER SET utf8;
