@@ -74,7 +74,7 @@ auth.settings.extra_fields['auth_user']= [
 
 auth.settings.register_onvalidation = generateNickname
 auth.settings.create_user_groups = False
-auth.define_tables()
+auth.define_tables(migrate=False)
 db.auth_user.email.writable = False
 db.auth_user.email.required = False
 db.auth_user.first_name.writable = False
