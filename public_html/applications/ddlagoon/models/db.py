@@ -18,7 +18,7 @@ if not request.env.web2py_runtime_gae:
     if request.env.http_host == '127.0.0.1:8000' or request.env.http_host == '127.0.0.1:8080':
         db = DAL('sqlite://storage.sqlite')
     else:
-        db = DAL('mysql://ddlagoon:YWQ20u77@ddlagoon.mysql.fluxflex.com/ddlagoon')
+        db = DAL('mysql://ddlagoon:YWQ20u77@ddlagoon.mysql.fluxflex.com/ddlagoon', migrate_enabled=False)
 else:
     ## connect to Google BigTable (optional 'google:datastore://namespace')
     db = DAL('google:datastore') 
