@@ -11,7 +11,7 @@
 from datetime import datetime
 #from applications.ddlagoon import pathutils
 
-__version__ = 1.8
+__version__ = 1.9
 
 from Crypto.PublicKey import RSA
 #from Crypto.Random import random
@@ -455,11 +455,9 @@ def ddl(id="", filename=""):
         return encryptedMsg
 
 def howto():
-#    win32= "http://www.mediafire.com/?hhbfzm4i3t2n99h"
-#    win64= "http://www.mediafire.com/?54t5ehe72p0i41p"
-    win32= "http://www.mediafire.com/?h962b5h6pb15yo9"
-    win64= "http://www.mediafire.com/?ov99b4665dh2pp3"
-    amd64= "http://www.mediafire.com/?9151o81nvtxx14t"
+    win32= "http://www.mediafire.com/?dd8w1my51qwrs70"
+    win64= "http://www.mediafire.com/?gtvi14dx713e849"
+    amd64= "http://www.mediafire.com/?p4mzpscyd93uur8"
     loggedIn = True if auth.is_logged_in() else False
     return dict(win32=win32, win64=win64, amd64=amd64, version=__version__, loggedIn=loggedIn)
 
